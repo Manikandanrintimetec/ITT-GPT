@@ -250,12 +250,6 @@ pytest -v
 
 ---
 
-## Author
-
-Manikandan R
-
----
-
 ## License
 
 This project is intended for educational, research, and internal development purposes.
