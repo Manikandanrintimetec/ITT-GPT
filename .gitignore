@@ -1,0 +1,39 @@
+```gitignore
+# Environment files
+.env
+.env.*
+
+# Virtual Environment
+env/
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+
+# Database
+*.db
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+
+# ChromaDB
+chroma_db/
+
+# Uploads
+uploads/
+
+# Pytest cache
+.pytest_cache/
+
+# Coverage
+.coverage
+htmlcov/
