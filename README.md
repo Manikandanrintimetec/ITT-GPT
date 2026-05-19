@@ -149,7 +149,7 @@ pip install -r requirements.txt
 Create a `.env` file in the root directory.
 
 ```env
-DATABASE_URL=postgresql://postgres:password@localhost:5432/ragchat
+DATABASE_URL=postgresql://postgres:password@localhost:5432/itt_gpt
 
 LLM_PROVIDER=openrouter
 
