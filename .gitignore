@@ -1,16 +1,20 @@
-```gitignore
 # Environment files
 .env
 .env.*
 
-# Virtual Environment
+# Virtual Environments
 env/
 venv/
 .venv/
+abc/
+def/
+venv*/
+.venv*/
+env*/
 
 # Python cache
 __pycache__/
-*.pyc
+*.py[cod]
 
 # Logs
 *.log
@@ -24,12 +28,6 @@ __pycache__/
 
 # OS files
 .DS_Store
-
-# ChromaDB
-chroma_db/
-
-# Uploads
-uploads/
 
 # Pytest cache
 .pytest_cache/
