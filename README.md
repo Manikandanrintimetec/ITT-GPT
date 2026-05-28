@@ -16,6 +16,8 @@ The application allows users to upload PDF documents, automatically processes an
   * HuggingFace
   * Ollama
 
+* Model Context Protocol (MCP) Server Integration
+
 * Retrieval-Augmented Generation (RAG)
 
 * PDF Upload, Chunking & Embedding
@@ -89,17 +91,18 @@ Data & Vector Layer
 ## Project Structure
 
 ```text
-app/
-├── main.py
-├── core/
-├── models/
-├── routers/
-├── schemas/
-├── services/
-├── llm/
-├── rag/
-├── utils/
-└── tests/
+├── app/
+│   ├── main.py
+│   ├── core/
+│   ├── models/
+│   ├── routers/
+│   ├── schemas/
+│   ├── services/
+│   ├── llm/
+│   ├── rag/
+│   ├── utils/
+│   └── tests/
+├── mcp_server.py
 ```
 
 ---
@@ -168,17 +171,29 @@ OLLAMA_BASE_URL=http://localhost:11434
 
 ## Running the Application
 
-### Development Server
+### 1. Development API Server
 
 ```bash
 uvicorn app.main:app --reload
 ```
 
-### Production Server
+### 2. Production API Server
 
 ```bash
 uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 4
 ```
+
+### 3. MCP (Model Context Protocol) Server
+
+To run the MCP server locally using stdio transport:
+
+```bash
+python mcp_server.py
+```
+
+To configure it in your AI coding assistant (such as Cursor or Google Antigravity IDE), add the command to your MCP settings or `mcp_config.json`:
+
+* **Command:** `venv/Scripts/python.exe mcp_server.py`
 
 ---
 
@@ -219,6 +234,16 @@ Retrieval combines:
 * Semantic similarity search
 * BM25 keyword ranking
 * Query rewriting
+
+### Model Context Protocol (MCP) Server
+
+Exposes RAG retrieval and database operations to LLM clients (like Claude Desktop, Cursor, or Antigravity IDE):
+
+* `list_conversations`: Lists conversations for a user.
+* `create_conversation`: Creates a new conversation thread in the database.
+* `get_conversation_history`: Retrieves message history for a conversation.
+* `retrieve_rag_context`: Performs similarity search on PDFs.
+* `send_chat_message`: Sends a message to the assistant, applying RAG context, routing to the chosen provider, storing messages in the database, and returning the response.
 
 ---
 
